@@ -1,0 +1,12 @@
+{
+    "perl" : "6.d",
+    "name" : "Metropolis",
+    "version" : "1.0.0",
+    "description" : "Generate sequence of random samples from probability distribution function.",
+    "authors" : [ "Paweł bbkr Pabian" ],
+    "provides" : {
+        "Metropolis" : "lib/Metropolis.rakumod"
+    },
+    "license" : "Artistic-2.0",
+    "source-url" : "git://github.com/bbkr/Metropolis.git"
+}
