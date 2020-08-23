@@ -7,6 +7,7 @@
 It can be used to generate naturally looking data for applications testing and presentation. For example let's assume that you have software for online marketing campaigns. And you have to generate fake traffic (100 000 site visits) that occurred after campaign started one month ago. It's obvious that such traffic is not constant. After campaign starts traffic is low. Then it quickly gains momentum, reaches interest peak and slowly fades away.
 
 ![Campaign traffic](/images/1.png)
+`f(x) = 2x / ( x^3 + 0.5 ), { x > 0 }` generated using awesome [Desmos calculator](https://www.desmos.com/calculator).
 
 
 
