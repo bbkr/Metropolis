@@ -4,7 +4,7 @@
 
 [Metropolis–Hastings algorithm](https://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm) is Markov chain Monte Carlo (MCMC) method for generating sequence of random samples from probability distribution function.
 
-It can be used to generate naturally looking data for applications testing and presentation. For example let's assume that you have software for online marketing campaigns. And you have to generate fake traffic (100 000 site visits) that occurred after campaign started 10 days ago to record tutorial for users. It's obvious that such traffic is not constant. After campaign start traffic is low, then it quickly gains momentum, reaches interest peak and slowly fades away.
+It can be used to generate naturally looking data for applications testing and presentation. For example let's assume that you have software for online marketing campaigns. And you have to generate fake traffic (100 000 site visits) that occurred after campaign started 10 days ago to record tutorial for users. It's obvious that such traffic is not constant. After campaign start traffic is low, then it quickly gains momentum, reaches interest peak and slowly fades away like this:
 
 ![Campaign traffic](/images/1.png)
 
@@ -17,11 +17,10 @@ With this module you will be able to generate such random samples with any proba
 # TABLE OF CONTENTS
 
 * [SYNOPSIS](#synopsis)
-* [HINT](#hint)
 * [METHODS](#methods)
   * [new](#new)
   * [sample](#sample)
-  * [graph](#collapse)
+  * [graph](#graph)
 * [TWEAKS](#tweaks)
 * [CONTACT](#contact) 
 
@@ -46,15 +45,15 @@ Params:
 
 * `function` (mandatory) - probability distribution function, must accept exactly one positional argument.
 * `domain` (mandatory) - range within which samples should be generated.
-* `jumper` (optional) - function that will return new sample from given jumping distribution. Check [TWEAKS](#tweaks) chapter for more info.
+* `jumper` (optional) - function that will return new sample from given jumping distribution. Check [TWEAKS](#tweaks) section for more info.
 
 ## sample
 
 Params:
 
-* `timeout` (optional) - how long can algorithm look for next sample. no timeout by default.
+* `timeout` (optional) - how long can algorithm look for next sample, no timeout by default.
 
-Get next sample value of `Num` type or `Nil` in case of timeout.
+Get next sample value of `Num` type. `Nil` will be returned in case of timeout.
 
 ## graph
 
@@ -63,7 +62,7 @@ Params:
 * `samples` (mandatory) - how many samples should be gathered.
 * `scale` (optional) - how high `y` axis should be, `100` characters by default.
 
-Crude plotting to quickly visualize requested distribution. With **swapped** axis (x is vertical, turn your monitor :P). All values are rounded to nearest integer. All bars are rounded to nearest integer. For example to display distribution from [SYNOPSIS](#synopsis):
+Crude plotting to quickly visualize requested distribution. With **swapped** axis (x is vertical, turn your monitor). All values are rounded to nearest integer. All bars are rounded to nearest integer. For example to display distribution from [SYNOPSIS](#synopsis):
 
 ```raku
 my $m = Metropolis.new(
@@ -95,7 +94,7 @@ Potato-grade but useful :)
 **Common issues:**
 
 * Some places have accumulation of samples way too high for requested probability distribution there.
-* Algorithm is not reaching every part of the domain. Some zero probability gaps (like in `sin $x` function) are not crossed by algorithm at all, places beyond them do not generate samples. 
+* Algorithm is not reaching every part of the domain. Some zero probability gaps (like in `f( x ) = sin x` function) are not crossed by algorithm at all, places beyond them do not generate samples. 
 * Sampling is realy, really slow.
 
 **Solutions:**
@@ -106,7 +105,7 @@ Potato-grade but useful :)
 
 **Expert:**
 
-You can provide your own jump function with desired distribution. By default [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) with `standard-deviation = 2` is used. [Uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution) is also provided with default `delta = 3`.
+You can provide your own jump function with desired distribution. By default [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) with `standard-deviation = 2` is used. [Uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_%28continuous%29) is also provided with default `delta = 3`.
 
 To use prebuilt and/or change its default:
 
