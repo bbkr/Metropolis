@@ -90,7 +90,7 @@ sub normal-distribution ( Real:D :$mean!, Real:D :$standard-deviation = 2 ) is e
 method graph ( Int:D :$samples!, Int:D :$scale = 100 ) {
     
     my %stats;
-    %stats{ self.sample( ).floor( ) }++ for ^$samples;
+    %stats{ self.sample( ).round( ) }++ for ^$samples;
 
     my @blocks = '⎸', '█';
     my $max-length-x = %stats.keys.map( *.chars ).max // 0;
