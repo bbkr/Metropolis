@@ -62,7 +62,7 @@ Params:
 * `samples` (mandatory) - how many samples should be gathered.
 * `scale` (optional) - how high `y` axis should be, `100` characters by default.
 
-Crude plotting to quickly visualize requested distribution. With **swapped** axis (x is vertical, turn your monitor). All values are rounded to nearest integer. All bars are rounded to nearest integer. For example to display distribution from [SYNOPSIS](#synopsis):
+Crude plotting to quickly visualize requested distribution. With **swapped** axis (x is vertical, turn your monitor). All values are rounded to nearest integer. All bars are rounded to nearest 1/8. For example to display distribution from [SYNOPSIS](#synopsis):
 
 ```raku
 my $m = Metropolis.new(
@@ -74,17 +74,17 @@ $m.graph( samples => 10000, scale => 10 );
 ```
 
 ```
- 0 ███ (1675)
- 1 ██████████ (4481)
- 2 ███ (1758)
- 3 █ (758)
- 4 ⎸ (431)
- 5 ⎸ (316)
- 6 ⎸ (188)
- 7 ⎸ (166)
- 8 ⎸ (112)
- 9 ⎸ (79)
-10 ⎸ (36)
+ 0 ███▋ (1622)
+ 1 ██████████  (4545)
+ 2 ████ (1800)
+ 3 █▊ (803)
+ 4 ▉ (417)
+ 5 ▌ (251)
+ 6 ▌ (208)
+ 7 ▎ (135)
+ 8 ▎ (106)
+ 9 ▎ (91)
+10 ▏ (22)
 ```
 
 Potato-grade but useful :)
