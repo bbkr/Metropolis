@@ -92,17 +92,20 @@ method graph ( Int:D :$samples!, Int:D :$scale = 100 ) {
     my %stats;
     %stats{ self.sample( ).round( ) }++ for ^$samples;
 
-    my @blocks = '⎸', '█';
+    my @blocks = ' ', |( ( 0x2588 .. 0x258F ).map( *.chr ).reverse );
     my $max-length-x = %stats.keys.map( *.chars ).max // 0;
     my $max-y = %stats.values.max // 1;
 
     for self.domain.min.floor .. self.domain.max -> $x {
-        
-       my $y = %stats{ $x } // 0;
-       my $scaled-y = ( $scale * $y / $max-y ).floor;
-        
+
+        my $y = %stats{ $x } // 0;
+        my $scaled-y = ( $scale * $y / $max-y );
+        my $whole    = $scaled-y.floor;
+        my $fraction = $scaled-y - $whole;
+
         printf '%' ~ $max-length-x ~ 'd ', $x;
-        print $scaled-y ?? ( @blocks[ 1 ] x $scaled-y ) !! @blocks[ 0 ];
+        my $bar = @blocks[ * - 1 ] x $whole ~ @blocks[ ( $fraction * 8 ).round ];
+        print $bar eq ' ' ?? @blocks[ 1 ] !! $bar;
         printf ' (%d)', $y;
         print "\n";
     }
