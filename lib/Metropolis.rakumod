@@ -1,4 +1,4 @@
-unit class Metropolis;
+unit class Metropolis:auth<github:bbkr>:ver<1.0.1>;
 
 #| user function describing desired probability distribution
 has &.function is required;
