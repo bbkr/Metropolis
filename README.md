@@ -1,6 +1,6 @@
 # Metropolis generator for [Raku](https://www.raku.org) language
 
-![test](https://github.com/bbkr/Metropolis/workflows/test/badge.svg)
+[![.github/workflows/test.yml](https://github.com/bbkr/Metropolis/actions/workflows/test.yml/badge.svg)](https://github.com/bbkr/Metropolis/actions/workflows/test.yml)
 
 [Metropolis–Hastings algorithm](https://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm) is Markov chain Monte Carlo (MCMC) method for generating sequence of random samples from probability distribution function.
 

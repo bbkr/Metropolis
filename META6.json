@@ -1,6 +1,6 @@
 {
     "name" : "Metropolis",
-    "version" : "1.0.2",
+    "version" : "1.0.3",
     "description" : "Generate sequence of random samples from probability distribution function.",
     "authors" : [ "Paweł bbkr Pabian" ],
     "auth": "zef:bbkr",
